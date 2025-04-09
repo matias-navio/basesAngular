@@ -15,9 +15,18 @@
   a:hover{
     color: rgb(0, 102, 255);
   }
+
+  nav a.active{
+    color: rgb(0, 102, 255);
+  }
 </style>
 
+<!-- atributo para enrutamiento, para diferenciar la ruta activa
+y para que la ruta '/' aparezca activa que sea exacta -->
 <nav>
-  <a routerLink="/">Counter</a>
-  <a routerLink="/hero">Hero</a>
+  <a routerLink="/"
+  routerLinkActive="active"
+  [routerLinkActiveOptions]="{exact: true}"
+  >Counter</a>
+  <a routerLink="/hero" routerLinkActive="active">Hero</a>
 </nav>
