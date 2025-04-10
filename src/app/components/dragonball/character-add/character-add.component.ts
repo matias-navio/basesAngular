@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
 import { Character } from '../../../interfaces/character.interface';
 
 @Component({
@@ -9,6 +9,8 @@ export class CharacterAddComponent {
 
   name = signal('');
   power = signal(0);
+
+  newCharacter = output<Character>();
 
   characters = signal<Character[]>([
       {id: 1, name: 'Goku', power: 9001},
@@ -22,13 +24,13 @@ export class CharacterAddComponent {
     }
     // creamos nuevo personaje
     const newCharacter: Character = {
-      id: 1000,
+      id: Math.floor(Math.random() * 1000),
       name: this.name(),
       power: this.power()
     }
     // actualizamos la señal de la lista usando la lista anterior con el nuevo personaje
     // this.characters.update((list) => [...list, newCharacter]);
-    console.log({newCharacter});
+    this.newCharacter.emit(newCharacter);
     this.resetFields();
   }
 

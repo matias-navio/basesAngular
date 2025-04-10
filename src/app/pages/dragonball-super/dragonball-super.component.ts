@@ -27,21 +27,9 @@ export class DragonballSuperComponent {
   ]);
 
   // metodo para agregar personajes a la lista
-  addCharacter() {
-    // validamos datos
-    if(!this.name() || !this.power() || this.power() <= 0){
-      return;
-    }
-    // creamos nuevo personaje
-    const newCharacter: Character = {
-      id: this.characters().length + 1,
-      name: this.name(),
-      power: this.power()
-    }
+  addCharacter(character: Character) {
     // actualizamos la señal de la lista usando la lista anterior con el nuevo personaje
-    // this.characters.update((list) => [...list, newCharacter]);
-    console.log({newCharacter});
-    this.resetFields();
+    this.characters.update((list) => [...list, character]);
   }
 
   // metodo para resetear campos de texto
