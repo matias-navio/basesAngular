@@ -1,4 +1,6 @@
 import { Component, signal } from '@angular/core';
+import { CharacterListComponent } from '../../components/dragonball/character-list/character-list.component';
+import { CharacterAddComponent } from "../../components/dragonball/character-add/character-add.component";
 
 // interface para crear personajes
 interface Character{
@@ -8,23 +10,20 @@ interface Character{
 }
 
 @Component({
-  selector: 'app-dragonball',
-  imports: [],
-  templateUrl: './dragonball.component.html',
-  styleUrl: './dragonball.component.css'
+  selector: 'dragonball-super',
+  imports: [CharacterListComponent, CharacterAddComponent],
+  templateUrl: './dragonball-super.component.html',
+  styleUrls: ['./dragonball-super.component.css']
 })
-export class DragonballComponent {
-
+export class DragonballSuperComponent {
   // señales para el personaje
   name = signal('');
   power = signal(0);
 
   // señal que tiene como generico un arrelo de personajes
   characters = signal<Character[]>([
-    {id: 1, name: 'Goku', power: 9001}
-    // {id: 2, name: 'Vegetta', power: 8000},
-    // {id: 3, name: 'Piccolo', power: 3500},
-    // {id: 4, name: 'Yamcha', power: 500},
+    {id: 1, name: 'Goku', power: 9001},
+    {id: 2, name: 'Vegetta', power: 8000}
   ]);
 
   // metodo para agregar personajes a la lista
@@ -40,7 +39,8 @@ export class DragonballComponent {
       power: this.power()
     }
     // actualizamos la señal de la lista usando la lista anterior con el nuevo personaje
-    this.characters.update((list) => [...list, newCharacter]);
+    // this.characters.update((list) => [...list, newCharacter]);
+    console.log({newCharacter});
     this.resetFields();
   }
 

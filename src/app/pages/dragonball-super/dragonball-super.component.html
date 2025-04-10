@@ -1,0 +1,21 @@
+<h1>DragonBall page</h1>
+
+<hr>
+
+<section class="row">
+  <div class="col-12 col-sm-6">
+
+    <character-add></character-add>
+
+  </div>
+
+  <div class="col-12 col-sm-6">
+
+    <!-- importamos los personajes desde el elemento padre con un input -->
+    <app-character-list
+      listName = "Listado de personajes"
+      [characters]="characters()"
+    />
+
+  </div>
+</section>
