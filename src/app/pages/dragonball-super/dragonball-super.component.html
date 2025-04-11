@@ -6,7 +6,7 @@
   <div class="col-12 col-sm-6">
 
     <character-add
-      (newCharacter)="addCharacter($event)"
+      (newCharacter)="dragonballService.addCharacter($event)"
     />
 
   </div>
@@ -16,7 +16,7 @@
     <!-- importamos los personajes desde el elemento padre con un input -->
     <app-character-list
       listName = "Listado de personajes"
-      [characters]="characters()"
+      [characters]="dragonballService.characters()"
     />
 
   </div>
